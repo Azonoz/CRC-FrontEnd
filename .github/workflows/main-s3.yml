@@ -20,4 +20,4 @@ jobs:
         aws-region: ap-southeast-2
 
     - name: Upload new assets to S3 bucket
-      run: aws s3 sync './CRC-FrontEnd/index.html' 's3://wajahat.crc' --delete
+      run: aws s3 sync './master/' 's3://wajahat.crc' --delete
