@@ -21,3 +21,6 @@ jobs:
 
     - name: Upload new assets to S3 bucket
       run: aws s3 sync './website/' 's3://${{ secrets.AWS_BUCKET_NAME }}' --delete
+
+    - name: Invalidate Cache
+      run: aws cloudfront create-invalidation --distribution-id '${{ secrets.AWS_CLOUDFRONT_ID }}' --paths '/*'
